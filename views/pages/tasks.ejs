@@ -1,0 +1,16 @@
+<%- include('../partials/top') %>
+
+    <h1>Tasks of <%= username %></h1>
+    <div><a href='/logout'>Logout</a></div>
+    <div>
+        <form method="post" action="/add/task">
+            <input type="text" name="task" placeholder="New Task" /> <button type="submit">Add</button>
+        </form>
+    </div>
+    <div>
+        <% for(let i = 0; i < tasks.length; i++) { %>
+            <div><%= tasks[i]['title'] %> <a href="/complete/task/<%= tasks[i]['_id'] %>">Complete</a></div>
+        <% } %>
+    </div>
+
+<%- include('../partials/bottom') %>
